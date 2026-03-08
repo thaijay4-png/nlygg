@@ -273,15 +273,7 @@ if not token:
     app.add_handler(CallbackQueryHandler(export_callback))
 
     print("✅ Bot is running...")
-    await app.run_polling()
+app.run_polling()
 
 if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except RuntimeError:
-        if nest_asyncio:
-            nest_asyncio.apply()
-            loop = asyncio.get_event_loop()
-            loop.run_until_complete(main())
-        else:
-            print("❌ Runtime error and nest_asyncio not installed.")
+    main()
